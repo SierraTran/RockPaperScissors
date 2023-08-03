@@ -29,7 +29,7 @@ def is_win(player, opponent):
 # This variable keeps the game loop going
 keep_playing = "y" 
 
-# This is the gam loop
+# This is the game loop
 while(keep_playing != "n"):
     print(play())
     keep_playing = input("\nWould you like to keep playing? 'y' for yes, 'n' for no\n").lower()
