@@ -6,7 +6,7 @@ This program simulates the "Rock, Paper, Scissors" game.
 
 def play():
     # The user is prompted for a choice, and the computer randomly chooses.
-    user = input("Pick one... \n'r' for rock, 'p' for paper, 's' for scissors\n")
+    user = input("Pick one... \n'r' for rock, 'p' for paper, 's' for scissors\n").lower()
     computer = random.choice(['r', 'p', 's'])
 
     # This shows the user's choice and the computer's choice
@@ -30,8 +30,9 @@ def is_win(player, opponent):
 keep_playing = "y" 
 
 # This is the gam loop
-while(keep_playing == "y"):
+while(keep_playing != "n"):
     print(play())
-    keep_playing = input("\nWould you like to keep playing? 'y' for yes, 'n' for no\n")
+    keep_playing = input("\nWould you like to keep playing? 'y' for yes, 'n' for no\n").lower()
+
 
 print("Goodbye!")
