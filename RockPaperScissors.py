@@ -10,13 +10,13 @@ def play():
     computer = random.choice(['r', 'p', 's'])
 
     # This variable uses the is_valid_choice function to make sure the user input can be used for the game
-    valid_choice = is_valid_choice(user)
+    valid_choice_play = is_valid_choice_play(user)
     
     # If the user inut is not valid, this loop will start and run until valid input is received from the user
-    while(valid_choice == False):
+    while(valid_choice_play == False):
         print(user + " is not a valid choice. Please try again.")
         user = input("Pick one... \n'r' for rock, 'p' for paper, 's' for scissors\n").lower()
-        valid_choice = is_valid_choice(user)
+        valid_choice_play = is_valid_choice_play(user)
 
     # This shows the user's choice and the computer's choice
     print("You: " + user)
@@ -42,19 +42,37 @@ def is_win(player, opponent):
 This function returns true if the user inputs 'r', 'p', or 's', 
 and returns false if it is anything else
 """
-def is_valid_choice(player):
+def is_valid_choice_play(player):
     if (player == 'r') or (player == 'p') or (player == 's'):
+        return True
+    return False
+
+def is_valid_choice_player_continue(answer):
+    if (answer == 'y') or (answer == 'n'):
+        return True
+    return False
+
+def player_continue():
+    answer = input("\nWould you like to keep playing? 'y' for yes, 'n' for no\n").lower()
+
+    valid_choice_continue = is_valid_choice_player_continue(answer)
+
+    while(valid_choice_continue == False):
+        print("Invalid choice. Please try again.")
+        answer = input("Would you like to keep playing? 'y' for yes, 'n' for no\n").lower()
+        valid_choice_continue = is_valid_choice_player_continue(answer)
+
+    if answer == 'y':
         return True
     return False
 
 
 # This variable keeps the game loop going
-keep_playing = "y" 
+keep_playing = True
 
 # This is the game loop
-while(keep_playing != "n"):
+while(keep_playing):
     print(play())
-    keep_playing = input("\nWould you like to keep playing? 'y' for yes, 'n' for no\n").lower()
-
+    keep_playing = player_continue()
 
 print("Goodbye!")
