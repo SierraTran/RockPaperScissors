@@ -48,13 +48,13 @@ def is_valid_choice_play(player):
     return False
 
 def player_continue():
-    answer = input("\nWould you like to keep playing? Type 'y' fr yes or 'n' for no.\n").lower()
+    answer = input("\nWould you like to keep playing? Type 'y' for yes or 'n' for no.\n").lower()
 
     valid_choice_continue = is_valid_choice_player_continue(answer)
 
     while(valid_choice_continue == False):
         print(answer + " is not a valid choice. Please try again.")
-        answer = input("Would you like to keep playing? Type 'y' fr yes or 'n' for no.\n").lower()
+        answer = input("Would you like to keep playing? Type 'y' for yes or 'n' for no.\n").lower()
         valid_choice_continue = is_valid_choice_player_continue(answer)
 
     if answer == 'y':
